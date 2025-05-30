@@ -1,0 +1,45 @@
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Environnements virtuels
+venv/
+env/
+ENV/
+
+# Fichiers de modèles et données
+*.pkl
+*.csv
+dataset_logs.csv
+model.pkl
+vectorizer.pkl
+label_encoder.pkl
+
+# Notebooks Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# Logs et fichiers temporaires
+*.log
+.DS_Store
+.env
+.venv
+*.swp
+
+# IDE
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Fichiers de cache
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/ 
