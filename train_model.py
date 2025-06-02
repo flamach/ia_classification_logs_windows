@@ -149,7 +149,7 @@ def save_model(model, vectorizer, le_source, model_path='model.pkl', vectorizer_
 def main():
     try:
         # Chargement des données
-        df = load_data('dataset_logs.csv')
+        df = load_data('eventlog.csv')
         
         # Prétraitement
         X_text, X_numeric, y, le_source = preprocess_data(df)

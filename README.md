@@ -6,6 +6,8 @@ Ce projet utilise l'apprentissage automatique pour classifier les logs Windows c
 
 - Python 3.11.9
 - Un environnement virtuel (venv)
+- Télécharger le dataset suivant : https://www.kaggle.com/datasets/mehulkatara/windows-event-log
+- Extraire le csv et le placer à la racine du projet
 
 ## Installation
 
@@ -24,7 +26,7 @@ pip install -r requirements.txt
 
 - `train_model.py` : Script pour entraîner le modèle
 - `predict.py` : Script pour prédire si de nouveaux logs sont dangereux
-- `dataset_logs.csv` : Jeu de données d'entraînement
+- `eventlog.csv` : Jeu de données d'entraînement 
 - `model.pkl` : Modèle entraîné (généré après l'entraînement)
 - `vectorizer.pkl` : Vectoriseur de texte (généré après l'entraînement)
 - `requirements.txt` : Liste des dépendances Python requises
