@@ -1,54 +1,47 @@
-# Syst√®me de D√©tection de Logs Dangereux
+# Classification des logs Windows
 
-Ce projet utilise l'apprentissage automatique pour classifier les logs Windows comme √©tant dangereux ou normaux.
+Ce projet utilise XGBoost pour classifier les logs Windows en diffÈrentes catÈgories (Information, Warning, Error, etc.).
 
-## Pr√©requis
+## Performance
 
-- Python 3.11.9
-- Un environnement virtuel (venv)
-- T√©l√©charger le dataset suivant : https://www.kaggle.com/datasets/mehulkatara/windows-event-log
-- Extraire le csv et le placer √† la racine du projet
+Le modËle atteint une prÈcision d''environ 85% sur les donnÈes de validation, avec une bonne balance entre prÈcision et rappel pour toutes les classes.
+
+## Features
+
+Le modËle utilise des features simples mais efficaces :
+- Longueur du message
+- Nombre de mots
+- Source du log
 
 ## Installation
 
-1. Cr√©ez et activez l'environnement virtuel :
-```powershell
+1. CrÈer un environnement virtuel Python :
+```bash
 python -m venv venv
-.\venv\Scripts\activate
+source venv/bin/activate  # Linux/Mac
+.\venv\Scripts\activate   # Windows
 ```
 
-2. Installez les d√©pendances depuis requirements.txt :
-```powershell
+2. Installer les dÈpendances :
+```bash
 pip install -r requirements.txt
 ```
 
-## Structure des fichiers
-
-- `train_model.py` : Script pour entra√Æner le mod√®le
-- `predict.py` : Script pour pr√©dire si de nouveaux logs sont dangereux
-- `eventlog.csv` : Jeu de donn√©es d'entra√Ænement 
-- `model.pkl` : Mod√®le entra√Æn√© (g√©n√©r√© apr√®s l'entra√Ænement)
-- `vectorizer.pkl` : Vectoriseur de texte (g√©n√©r√© apr√®s l'entra√Ænement)
-- `requirements.txt` : Liste des d√©pendances Python requises
-
 ## Utilisation
 
-1. Entra√Ænement du mod√®le :
-```powershell
-python train_model.py
+Pour entraÓner et Èvaluer le modËle :
+```bash
+python test_model_xgboost_balanced.py
 ```
 
-2. Pr√©diction sur de nouveaux logs :
-```powershell
-python predict.py
-```
+Le script :
+1. Charge et prÈtraite les donnÈes
+2. Effectue une validation croisÈe 5-fold
+3. Sauvegarde le modËle final et les mÈtriques de performance
 
-## Format des donn√©es
+## Structure du projet
 
-Les logs doivent √™tre au format CSV. Pour la pr√©diction, placez vos nouveaux logs dans un fichier `new_logs.csv` avec la m√™me structure que le fichier d'entra√Ænement.
-
-## Notes
-
-- Le mod√®le utilise Random Forest pour la classification
-- Les donn√©es textuelles sont vectoris√©es en utilisant TF-IDF
-- Les pr√©dictions incluent une probabilit√© de danger pour chaque log 
+- `test_model_xgboost_balanced.py` : Script principal contenant le code d''entraÓnement et d''Èvaluation
+- `eventlog.csv` : DonnÈes des logs (non inclus dans le repo)
+- `xgboost_model_balanced.model` : ModËle entraÓnÈ
+- `xgboost_model_balanced_metadata.json` : MÈtadonnÈes et mÈtriques de performance du modËle
