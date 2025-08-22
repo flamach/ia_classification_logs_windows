@@ -1,0 +1,35 @@
+{
+  "model_type": "XGBoost with balanced sampling",
+  "max_samples_per_class": 1000,
+  "metrics": {
+    "accuracy": {
+      "mean": 0.80919475,
+      "std": 0.00019624984076425405
+    },
+    "precision": {
+      "mean": 0.7160635059601455,
+      "std": 0.00019412270861881225
+    },
+    "recall": {
+      "mean": 0.80919475,
+      "std": 0.00019624984076425405
+    },
+    "f1": {
+      "mean": 0.7391635023270025,
+      "std": 0.0002877684212307985
+    }
+  },
+  "features": [
+    "message_length",
+    "word_count",
+    "source",
+    "has_error"
+  ],
+  "date_trained": "2025-08-04T14:51:31.856939",
+  "test_scores": {
+    "accuracy": 0.809177,
+    "precision": 0.7161197957127184,
+    "recall": 0.809177,
+    "f1": 0.7391210120505687
+  }
+}
