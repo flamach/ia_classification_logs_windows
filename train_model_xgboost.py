@@ -23,14 +23,16 @@ def train_and_evaluate(features_path='eventlog_preprocessed.csv', labels_path='l
         X, y, test_size=0.2, stratify=y, random_state=42
     )
 
+    # Hyperparamètres optimisés pour améliorer le F1-score
     model = XGBClassifier(
-        n_estimators=30,
-        max_depth=3,
-        learning_rate=0.08,
-        subsample=0.7,
-        colsample_bytree=0.7,
-        min_child_weight=4,
-        gamma=1.5,
+        n_estimators=100,          # Plus d'arbres pour un meilleur apprentissage
+        max_depth=5,               # Profondeur accrue pour capturer plus de complexité
+        learning_rate=0.05,        # Taux d'apprentissage plus lent mais plus stable
+        subsample=0.8,             # Plus d'échantillons pour réduire la variance
+        colsample_bytree=0.8,      # Plus de features pour chaque arbre
+        min_child_weight=2,        # Moins restrictif pour les classes minoritaires
+        gamma=0.5,                 # Régularisation plus faible
+        scale_pos_weight=1,        # Équilibrage des classes
         random_state=42
     )
 

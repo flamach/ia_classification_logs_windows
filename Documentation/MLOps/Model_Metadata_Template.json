@@ -1,0 +1,13 @@
+{
+  "model_name": "xgboost_model_validated",
+  "version": "1.0.0",
+  "created_at": "2025-08-25T00:00:00Z",
+  "metrics": {
+    "accuracy": 0.9125,
+    "f1_weighted": 0.9064
+  },
+  "artifacts": {
+    "model_file": "xgboost_model_validated.model",
+    "validation_report": "validation_report_signed.json"
+  }
+}

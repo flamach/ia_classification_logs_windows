@@ -1,0 +1,28 @@
+dataset:
+  name: eventlog
+  description: Logs d'evenements preprocessés pour classification
+  fields:
+    - name: case_id
+      type: string
+      description: Identifiant du cas
+    - name: timestamp
+      type: datetime
+      format: iso8601
+    - name: activity
+      type: string
+    - name: resource
+      type: string
+    - name: feature_1
+      type: float
+      description: Feature numérique dérivée (ex: durée en secondes)
+    - name: feature_2
+      type: float
+    - name: feature_3
+      type: float
+    - name: label
+      type: integer
+      description: Label cible (encodé)
+  format:
+    file: eventlog_preprocessed.csv
+    delimiter: ","
+    encoding: utf-8
